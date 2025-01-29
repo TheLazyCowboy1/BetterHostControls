@@ -1,0 +1,11 @@
+{
+  "id": "LazyCowboy.BetterHostControls",
+  "name": "Better Host Controls",
+  "version": "0.0.1",
+  "authors": "LazyCowboy",
+  "description": "Allows hosts in Rain Meadow to kill clients through the spectator menu and pass through gates when some clients are dead.<LINE><LINE>Benefits this mod:<LINE>* Purely client-side: This means that other players who join your lobby do NOT need this mod; it'll still work even if just you have it!<LINE>* Don't wait around for everyone to enter the shelter! Just explode the ones who are too slow!<LINE>* Don't wait to go through gates either! Just blow up the slowpokes and carry on with life!<LINE>* (This also patches gates not working if some players are dead and spectating. Now, dead players are sent to the sleep screen when you pass through a gate.)<LINE>* Hilariously explode any players you don't like with absolutely no consequences (except the loss of your friendships)! BOOM!<LINE>* Still allows the host to kick clients. After using the explode button, it'll change back to the kick/ban button (X symbol). Just be careful not to accidentally double-click it and ban someone!<LINE><LINE>Please report bugs that seem to be related to this mod (sleep-screen issues or spectator menu issues). There will be bugs; just give me info about them.",
+  "requirements": ["henpemaz_rainmeadow"],
+  "requirements_names": ["Rain Meadow"],
+  "tags": ["Tools", "Accessibility", "Rain Meadow mods"],
+  "checksum_override_version": false
+}

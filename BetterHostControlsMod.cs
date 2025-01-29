@@ -123,8 +123,11 @@ public partial class BetterHostControlsMod : BaseUnityPlugin
                 //Rain Meadow currently adds two buttons: the kick button, and THEN the mute button on top of it.
                 //So I have to filter through to find the kick button. ...fun...
                 SimplerSymbolButton kickButton2 = null;
-                foreach (MenuObject item in self.kickbutton.owner.subObjects)
+                //foreach (MenuObject item in self.kickbutton.owner.subObjects)
+                //find MOST RECENT kick-button added, not the first one!!!
+                for (int i = self.kickbutton.owner.subObjects.Count - 1; i >= 0; i--)
                 {
+                    MenuObject item = self.kickbutton.owner.subObjects[i];
                     if (item is SimplerSymbolButton button2 && button2.signalText == "KICKPLAYER")
                     {
                         kickButton2 = button2;
@@ -168,7 +171,7 @@ public partial class BetterHostControlsMod : BaseUnityPlugin
 
     private void AddDeathScreenButton(SpectatorOverlay.PlayerButton self, Vector2 pos)
     {
-        self.kickbutton = new SimplerSymbolButton(self.overlay, self.overlay.pages[0], "Kill_Slugcat", "KICKPLAYER", pos + new Vector2(120, 0));
+        self.kickbutton = new SimplerSymbolButton(self.overlay, self.overlay.pages[0], "Multiplayer_Death", "REMOVEPLAYER", pos + new Vector2(120, 0));
         self.kickbutton.OnClick += (_) =>
         {
             if (self.player.apo.realizedObject is Player)
@@ -184,12 +187,12 @@ public partial class BetterHostControlsMod : BaseUnityPlugin
             AddKickButton(self, pos);
         };
         self.kickbutton.owner.subObjects.Add(self.kickbutton);
-        Logger.LogDebug("Set up Remove-to-lobby button");
+        Logger.LogDebug("Set up remove-to-lobby button");
     }
 
     private void AddExplodeButton(SpectatorOverlay.PlayerButton self, Vector2 pos)
     {
-        self.kickbutton = new SimplerSymbolButton(self.overlay, self.overlay.pages[0], "Kill_Slugcat", "KICKPLAYER", pos + new Vector2(120, 0));
+        self.kickbutton = new SimplerSymbolButton(self.overlay, self.overlay.pages[0], "Multiplayer_Death", "EXPLODEPLAYER", pos + new Vector2(120, 0));
         self.kickbutton.OnClick += (_) =>
         {
             if (self.player.apo.realizedObject is Player)
@@ -206,7 +209,7 @@ public partial class BetterHostControlsMod : BaseUnityPlugin
             AddKickButton(self, pos);
         };
         self.kickbutton.owner.subObjects.Add(self.kickbutton);
-        Logger.LogDebug("Set up Remove-to-lobby button");
+        Logger.LogDebug("Set up explode button");
     }
     #endregion
 }
